@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roget Geoffroy · Web Developer</title>
+<meta name="description" content="Roget Geoffroy is a web developer in Los Angeles with 10 years of experience building responsive, accessible websites and web applications in React, Next.js, TypeScript, Node.js and PHP.">
+<meta name="author" content="Roget Geoffroy">
+<meta property="og:title" content="Roget Geoffroy · Web Developer">
+<meta property="og:description" content="Web developer in Los Angeles: React, Next.js, TypeScript, Node.js, PHP, Shopify, WordPress and HubSpot.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2312151C'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='700' text-anchor='middle' fill='%23F2A93B'%3ERG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --cream: #F4EEE2; --paper: #FBF8F1; --ink: #12151C; --ink-soft: #4B5160;
+  --amber: #F2A93B; --teal: #0E5A4D; --tomato: #E2512D;
+  --on-dark: #F4EEE2; --on-dark-soft: #B9B3A6;
+  --rule: rgba(18, 21, 28, 0.18); --rule-dark: rgba(244, 238, 226, 0.22);
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--cream); color: var(--ink); font: 16px/1.6 var(--font-body); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--tomato); outline-offset: 3px; }
+.wrap { max-width: 1160px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 32px); }
+h1, h2, h3 { text-wrap: balance; }
+.kicker { font: 500 0.74rem/1.3 var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; color: var(--tomato); margin: 0 0 12px; }
+.block { padding-block: clamp(48px, 7vw, 84px); }
+.dark { background: var(--ink); color: var(--on-dark); }
+.dark .kicker { color: var(--amber); }
+
+.masthead { background: var(--cream); border-bottom: 4px solid var(--ink); }
+.dateline { display: flex; justify-content: space-between; align-items: center; gap: 12px 20px; flex-wrap: wrap; padding-block: 12px; border-bottom: 1px solid var(--rule); font: 500 0.74rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); }
+.dateline nav { display: flex; gap: 16px; flex-wrap: wrap; }
+.dateline nav a { text-decoration: none; color: var(--ink); }
+.dateline nav a:hover { color: var(--tomato); }
+.nameplate { font: 800 clamp(3.2rem, 9vw, 8.4rem)/0.88 var(--font-display); letter-spacing: -0.045em; margin: 0; padding-block: 18px 14px; font-variation-settings: "opsz" 144; text-align: center; overflow-wrap: break-word; }
+.nameplate em { font-style: italic; font-weight: 400; color: var(--tomato); }
+.subhead { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-block: 10px 14px; border-top: 1px solid var(--rule); font: 600 0.82rem var(--font-body); }
+.subhead span:nth-child(2) { color: var(--tomato); }
+
+.cover { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+.cover h1 { font: 600 clamp(2.4rem, 5.6vw, 4.7rem)/1.0 var(--font-display); letter-spacing: -0.03em; margin: 0 0 28px; font-variation-settings: "opsz" 144; }
+.cover h1 em { font-style: italic; font-weight: 400; color: var(--amber); }
+.deck { columns: 2 240px; column-gap: 32px; column-rule: 1px solid var(--rule-dark); color: var(--on-dark-soft); margin: 0 0 30px; font-size: 1.02rem; }
+.deck::first-letter { float: left; font: 600 4.2rem/0.8 var(--font-display); color: var(--amber); margin: 6px 10px 0 0; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { font: 600 0.9rem var(--font-body); text-decoration: none; padding: 11px 18px; border: 1.5px solid var(--on-dark); color: var(--on-dark); transition: background 0.15s, color 0.15s; }
+.btn:hover { background: var(--on-dark); color: var(--ink); }
+.btn.primary { background: var(--amber); border-color: var(--amber); color: var(--ink); }
+.btn.primary:hover { background: var(--tomato); border-color: var(--tomato); color: var(--paper); }
+.pull { background: var(--amber); color: var(--ink); padding: 26px 26px 30px; }
+.pull .big { display: block; font: 800 clamp(4rem, 9vw, 7.2rem)/0.85 var(--font-display); letter-spacing: -0.05em; font-variation-settings: "opsz" 144; }
+.pull .what { display: block; font: italic 400 1.35rem/1.25 var(--font-display); margin-top: 12px; }
+.pull .src { display: block; margin-top: 16px; font: 500 0.7rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; }
+.pull-note { margin-top: 18px; font: italic 400 1.05rem/1.45 var(--font-display); color: var(--on-dark-soft); border-left: 3px solid var(--tomato); padding-left: 14px; }
+
+.ribbon { background: var(--tomato); color: var(--paper); }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.stat { padding: 22px 18px; display: grid; gap: 2px; border-left: 1px solid rgba(251, 248, 241, 0.35); }
+.stat:first-child { border-left: none; padding-left: 0; }
+.stat b { font: 600 clamp(1.7rem, 3vw, 2.4rem)/1 var(--font-display); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.stat span { font-size: 0.82rem; font-weight: 500; }
+
+.spread-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: end; border-bottom: 3px solid currentColor; padding-bottom: 14px; margin-bottom: 34px; }
+.spread-head h2 { font: 600 clamp(2.2rem, 5vw, 3.8rem)/0.95 var(--font-display); letter-spacing: -0.03em; margin: 0; font-variation-settings: "opsz" 144; }
+.spread-head h2 em { font-style: italic; font-weight: 400; color: var(--tomato); }
+.dark .spread-head h2 em, .teal .spread-head h2 em { color: var(--amber); }
+.spread-head > p { margin: 0; justify-self: end; max-width: 38ch; font: italic 400 1.05rem/1.4 var(--font-display); }
+
+.timeline { margin-bottom: 40px; background: var(--paper); border: 1px solid var(--rule); padding: 18px 20px 8px; }
+.tl-title { font: 500 0.7rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-soft); margin: 0 0 10px; }
+.tl-row { display: grid; grid-template-columns: 170px 1fr; gap: 14px; align-items: center; padding-block: 4px; }
+.tl-name { font-size: 0.82rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tl-track { position: relative; height: 12px; background: repeating-linear-gradient(90deg, var(--rule) 0 1px, transparent 1px calc(100% / var(--years))); }
+.tl-bar { position: absolute; top: 1px; bottom: 1px; background: var(--teal); }
+.tl-bar.now { background: var(--tomato); }
+.tl-axis { display: grid; grid-template-columns: 170px 1fr; gap: 14px; }
+.tl-years { position: relative; height: 24px; font: 0.7rem var(--font-mono); color: var(--ink-soft); border-top: 1px solid var(--ink); font-variant-numeric: tabular-nums; }
+.tl-years span { position: absolute; top: 5px; transform: translateX(-50%); }
+.tl-years span:first-child { transform: none; }
+
+.lead-story { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 40px; padding-bottom: 34px; margin-bottom: 34px; border-bottom: 1px solid var(--rule); }
+.dates { font: 500 0.78rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; }
+.lead-story .dates { color: var(--tomato); }
+.lead-story h3 { font: 600 clamp(1.9rem, 3.6vw, 2.8rem)/1.02 var(--font-display); letter-spacing: -0.02em; margin: 8px 0 8px; }
+.org { font: italic 400 1.15rem var(--font-display); color: var(--ink-soft); }
+.lead-story ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; counter-reset: item; }
+.lead-story li { padding-left: 34px; position: relative; font-size: 1.02rem; }
+.lead-story li::before { content: counter(item, decimal-leading-zero); counter-increment: item; position: absolute; left: 0; top: 2px; font: 600 0.8rem var(--font-mono); color: var(--tomato); }
+
+.columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.col-story { padding: 0 24px 30px; border-left: 1px solid var(--rule); min-width: 0; }
+.col-story:nth-child(3n+1) { border-left: none; padding-left: 0; }
+.col-story:nth-child(3n) { padding-right: 0; }
+.col-story .dates { font-size: 0.72rem; color: var(--teal); }
+.col-story h3 { font: 600 1.35rem/1.15 var(--font-display); margin: 6px 0 2px; }
+.col-story .org { font-size: 1rem; margin-bottom: 10px; }
+.col-story ul { margin: 0; padding-left: 16px; display: grid; gap: 6px; font-size: 0.92rem; color: var(--ink-soft); }
+.col-story ul li::marker { color: var(--tomato); }
+
+.teal { background: var(--teal); color: var(--on-dark); }
+.teal .kicker { color: var(--amber); }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 28px; border-top: 1px solid var(--rule-dark); }
+.card { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 18px; padding: 22px 0 24px; text-decoration: none; border-bottom: 1px solid var(--rule-dark); transition: background 0.15s; }
+.card:hover { background: rgba(244, 238, 226, 0.06); }
+.card .num { font: 800 3rem/0.9 var(--font-display); color: var(--amber); font-variant-numeric: tabular-nums; letter-spacing: -0.04em; }
+.card .kind { font: 500 0.68rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; color: var(--on-dark-soft); }
+.card h3 { font: 600 1.35rem/1.1 var(--font-display); margin: 4px 0 6px; }
+.card p { margin: 0 0 8px; font-size: 0.9rem; color: var(--on-dark-soft); }
+.card .host { font: 0.72rem var(--font-mono); color: var(--amber); }
+.more { margin-top: 26px; font: italic 400 1.05rem var(--font-display); color: var(--on-dark-soft); }
+.more a { color: var(--on-dark); }
+
+.index { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0 32px; }
+.index-group { padding-block: 16px 18px; border-top: 2px solid var(--ink); min-width: 0; }
+.index-group h3 { font: 600 1.2rem var(--font-display); margin: 0 0 10px; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.index-group h3 span { font: 500 0.7rem var(--font-mono); color: var(--tomato); }
+.index-group p { margin: 0; font-size: 0.94rem; line-height: 1.75; color: var(--ink-soft); }
+.index-group p i { font-style: normal; color: var(--tomato); }
+
+.ed-lang { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 40px; margin-top: 54px; padding-top: 28px; border-top: 3px solid var(--ink); }
+.ed-lang h3 { font: 600 1.3rem var(--font-display); margin: 0 0 14px; }
+.ed { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; padding-block: 8px; border-bottom: 1px solid var(--rule); }
+.ed .yr { font: 500 0.78rem var(--font-mono); color: var(--tomato); padding-top: 3px; }
+.ed b { display: block; font-weight: 600; }
+.ed span { font-size: 0.9rem; color: var(--ink-soft); }
+.lang { display: flex; justify-content: space-between; padding-block: 9px; border-bottom: 1px solid var(--rule); font-weight: 600; }
+.lang span { color: var(--ink-soft); font: italic 400 1rem var(--font-display); }
+
+.colophon { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 40px; align-items: end; }
+.colophon h2 { font: 600 clamp(2.2rem, 5vw, 3.8rem)/0.98 var(--font-display); letter-spacing: -0.03em; margin: 0 0 14px; }
+.colophon h2 em { font-style: italic; font-weight: 400; color: var(--amber); }
+.colophon p { margin: 0; color: var(--on-dark-soft); max-width: 44ch; }
+.contact-row { display: flex; align-items: center; gap: 12px; padding-block: 10px; border-bottom: 1px solid var(--rule-dark); flex-wrap: wrap; }
+.contact-row .lbl { font: 500 0.7rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber); width: 76px; }
+.contact-row a, .contact-row .val { text-decoration: none; font-weight: 600; overflow-wrap: anywhere; }
+.contact-row a:hover { color: var(--amber); }
+.copy { margin-left: auto; font: 500 0.7rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; background: none; color: var(--on-dark); border: 1px solid var(--rule-dark); padding: 3px 8px; cursor: pointer; }
+.copy:hover { border-color: var(--amber); color: var(--amber); }
+.fine { margin: 46px 0 0; padding-top: 14px; border-top: 1px solid var(--rule-dark); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font: 500 0.7rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--on-dark-soft); }
+
+@media (max-width: 900px) {
+  .cover, .lead-story, .colophon, .ed-lang { grid-template-columns: 1fr; }
+  .columns, .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .col-story:nth-child(3n+1) { border-left: 1px solid var(--rule); padding-left: 24px; }
+  .col-story:nth-child(2n+1) { border-left: none; padding-left: 0; }
+  .col-story:nth-child(3n) { padding-right: 24px; }
+  .col-story:nth-child(2n) { padding-right: 0; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat:nth-child(3) { border-left: none; padding-left: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid rgba(251, 248, 241, 0.35); }
+  .spread-head { grid-template-columns: 1fr; }
+  .spread-head > p { justify-self: start; }
+  .tl-row, .tl-axis { grid-template-columns: 110px 1fr; }
+}
+@media (max-width: 560px) {
+  .columns, .grid { grid-template-columns: 1fr; }
+  .col-story, .col-story:nth-child(n) { border-left: none; padding-inline: 0; border-top: 1px solid var(--rule); padding-top: 18px; }
+  .dateline { justify-content: center; }
+  .dateline > .issue { display: none; }
+  .subhead { justify-content: center; text-align: center; }
+  .deck { columns: 1; }
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="dateline">
+      <span class="issue" id="issue-line">Los Angeles Edition</span>
+      <nav aria-label="Sections">
+        <a href="#experience">Experience</a>
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <p class="nameplate" aria-label="Roget Geoffroy">Roget <em>Geoffroy</em></p>
+    <div class="subhead">
+      <span>Front End · Full Stack · CMS · E-commerce</span>
+      <span>Web Developer</span>
+      <span>Los Angeles, CA</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="block dark">
+    <div class="wrap cover">
+      <div>
+        <p class="kicker">Cover story · Open to Web Developer roles</p>
+        <h1>Ten years building fast, accessible websites <em>that sell.</em></h1>
+        <p class="deck">Web developer with 10 years of experience designing, building and maintaining responsive, accessible websites and web applications for e-commerce brands, publishers, fintech and public health. I work across the stack in React, Next.js, TypeScript, Node.js and PHP; integrate REST and GraphQL APIs, databases, CMS platforms and third-party services; and test across browsers and devices with Jest, Cypress and BrowserStack. A BS in Computer Science and Design helps me turn designers' specs into fast, polished interfaces.</p>
+        <div class="actions">
+          <a class="btn primary" href="Roget-Geoffroy-Web-Developer-Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+          <a class="btn" href="mailto:rogetgeoffroy@gmail.com">Email me</a>
+          <a class="btn" href="https://github.com/rogetgeoffroy" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/roget-geoffroy-5b94596b" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+      <aside>
+        <div class="pull"><span class="big">50%</span><span class="what">profit increase from SEO and UX work</span><span class="src">CeteraMarketing, 2023 – 2025</span></div>
+        <p class="pull-note">A designer's eye from a BS in Computer Science and Design.</p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="ribbon">
+    <div class="wrap stats">
+      <div class="stat"><b>10 yrs</b><span>building for the web, 2016 to now</span></div>
+      <div class="stat"><b>50%</b><span>profit increase from SEO and UX work</span></div>
+      <div class="stat"><b>7</b><span>companies, from startups to NYC Health + Hospitals</span></div>
+      <div class="stat"><b>6</b><span>client sites in the portfolio below</span></div>
+    </div>
+  </div>
+
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="spread-head">
+        <div><p class="kicker">The feature</p><h2>Ten years, <em>seven</em> roles</h2></div>
+        <p>From the American Kennel Club to leading a team of developers, one role at a time.</p>
+      </div>
+      <div class="timeline" id="timeline"></div>
+
+      <article class="lead-story">
+        <div><span class="dates">Oct 2025 – Present</span><h3>Zoho Developer and Tech Lead</h3><div class="org">PINKYS Iron Doors, Vernon, CA</div></div>
+        <ul>
+          <li>Lead a team of three developers through Scrum, tracked in Zoho Sprints, with code reviews to hold quality and deadlines.</li>
+          <li>Build Zoho custom functions and integrations across Inventory, CRM, Flow and Creator to automate sales and operations.</li>
+          <li>Built an inventory system that tracks every product from order through delivery.</li>
+          <li>Shipped process changes and digital marketing features that turn more leads into direct sales.</li>
+        </ul>
+      </article>
+
+      <div class="columns">
+        <article class="col-story"><span class="dates">Oct 2023 – Oct 2025</span><h3>Full Stack Developer</h3><div class="org">CeteraMarketing, North Hollywood, CA</div>
+          <ul>
+            <li>Built custom e-commerce sites for clients in Next.js and React, increasing client engagement.</li>
+            <li>Led SEO and UX improvements credited with a 50% increase in profits.</li>
+            <li>Integrated third-party APIs and services to add features and smooth the user experience.</li>
+            <li>Turned design specs into responsive front ends that work across browsers and devices, and refactored outdated codebases to modern, scalable standards.</li>
+          </ul></article>
+        <article class="col-story"><span class="dates">Apr 2023 – Sep 2024</span><h3>Full Stack Developer</h3><div class="org">TGR Foundation, Irvine, CA</div>
+          <ul>
+            <li>Led development of a custom e-commerce platform that raised user engagement and conversion rates.</li>
+            <li>Built product pages, interactive content modules with back-end editing, and custom CMS plugins with PHP, JavaScript, React, Node.js, AWS and WordPress.</li>
+            <li>Led third-party API integrations and moved legacy systems onto modern frameworks.</li>
+            <li>Ran two-week sprints and code reviews to hold code quality and deadlines.</li>
+          </ul></article>
+        <article class="col-story"><span class="dates">Feb 2022 – Apr 2023</span><h3>Full Stack Developer</h3><div class="org">BlueVine, San Francisco, CA</div>
+          <ul>
+            <li>Migrated the website from WordPress to a headless CMS built with React.</li>
+            <li>Designed REST APIs with back-end developers and built responsive interfaces on top of them.</li>
+            <li>Refactored legacy code and streamlined deployment for faster, more reliable releases.</li>
+          </ul></article>
+        <article class="col-story"><span class="dates">Apr 2020 – Jan 2022</span><h3>Web Developer</h3><div class="org">NYC Health + Hospitals, New York, NY</div>
+          <ul>
+            <li>Built a geolocation web app in React, Node.js, PHP and AWS that mapped COVID-19 hotspots from patient data.</li>
+            <li>Kept patient data secure and HIPAA-compliant throughout collection and handling.</li>
+            <li>Redesigned the website and updated its CSS stack for better responsiveness across screen sizes.</li>
+            <li>Added PHP features and custom CMS plugins and widgets for easier content updates.</li>
+          </ul></article>
+        <article class="col-story"><span class="dates">Feb 2018 – Apr 2020</span><h3>Web Developer</h3><div class="org">CoreSight Research, New York, NY</div>
+          <ul>
+            <li>Grew site traffic through technical SEO and targeted content.</li>
+            <li>Maintained the PHP back end and sped up the site with caching and database optimization.</li>
+            <li>Built custom-styled templates in Adobe Experience Manager and Liquid updates for affiliate Shopify stores.</li>
+            <li>Strengthened site security with encryption.</li>
+          </ul></article>
+        <article class="col-story"><span class="dates">Apr 2016 – Feb 2018</span><h3>Web Developer</h3><div class="org">American Kennel Club</div>
+          <ul>
+            <li>Troubleshot and fixed site defects and shipped changes with PHP, Handlebars, Vue.js and Git.</li>
+            <li>Designed front-end mockups used to win new clients.</li>
+            <li>Fixed 404 errors with regex and CMS redirects to improve SEO.</li>
+            <li>Added CMS plugins and shortcodes so editors could update content themselves.</li>
+          </ul></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block teal" id="work">
+    <div class="wrap">
+      <div class="spread-head">
+        <div><p class="kicker">Portfolio</p><h2>Shipped for <em>clients</em></h2></div>
+        <p>Sites built through agency and freelance work, front end to back end.</p>
+      </div>
+      <div class="grid">
+        <a class="card" href="https://unitedpixelworkers.com/" target="_blank" rel="noopener noreferrer"><span class="num">01</span><div><span class="kind">Creative studio</span><h3>United Pixel Workers</h3><p>Front-end and back-end development for a creative studio's site.</p><span class="host">unitedpixelworkers.com ↗</span></div></a>
+        <a class="card" href="https://www.rotorandwing.com/" target="_blank" rel="noopener noreferrer"><span class="num">02</span><div><span class="kind">Aviation media</span><h3>Rotor &amp; Wing</h3><p>Front-end and back-end development for an aviation media publication.</p><span class="host">rotorandwing.com ↗</span></div></a>
+        <a class="card" href="https://myspacenyc.com/" target="_blank" rel="noopener noreferrer"><span class="num">03</span><div><span class="kind">Real estate</span><h3>MySpace NYC</h3><p>Front-end and back-end work for a New York real estate brand.</p><span class="host">myspacenyc.com ↗</span></div></a>
+        <a class="card" href="https://realnyproperties.com/" target="_blank" rel="noopener noreferrer"><span class="num">04</span><div><span class="kind">Real estate</span><h3>Real NY Properties</h3><p>Client site delivered through agency and freelance work.</p><span class="host">realnyproperties.com ↗</span></div></a>
+        <a class="card" href="https://thetailorynyc.com/" target="_blank" rel="noopener noreferrer"><span class="num">05</span><div><span class="kind">Retail</span><h3>The Tailory NYC</h3><p>Client site for a New York tailoring shop, delivered through freelance work.</p><span class="host">thetailorynyc.com ↗</span></div></a>
+        <a class="card" href="https://catchyfreebies.com/" target="_blank" rel="noopener noreferrer"><span class="num">06</span><div><span class="kind">Consumer</span><h3>Catchy Freebies</h3><p>Client site delivered through agency and freelance work.</p><span class="host">catchyfreebies.com ↗</span></div></a>
+      </div>
+      <p class="more">More design work, from 3D models to posters and logos, lives on <a href="https://www.behance.net/rogeRRabbit" target="_blank" rel="noopener noreferrer">Behance</a> and <a href="http://tilde.club/~roget/Profile/" target="_blank" rel="noopener noreferrer">tilde.club</a>.</p>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <div class="spread-head">
+        <div><p class="kicker">Index</p><h2>The <em>toolkit</em></h2></div>
+        <p>From Figma spec to tested, deployed production code.</p>
+      </div>
+      <div class="index" id="skill-index"></div>
+      <div class="ed-lang">
+        <div><h3>Education</h3>
+          <div class="ed"><span class="yr">2014 – 2018</span><div><b>BS, Computer Science and Design</b><span>City College of New York</span></div></div>
+          <div class="ed"><span class="yr">2012 – 2014</span><div><b>Associate in Liberal Arts</b><span>Borough of Manhattan Community College</span></div></div>
+        </div>
+        <div><h3>Languages</h3>
+          <div class="lang">English <span>Native</span></div>
+          <div class="lang">French <span>Proficient</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="block dark" id="contact">
+  <div class="wrap">
+    <div class="colophon">
+      <div>
+        <p class="kicker">Contact</p>
+        <h2>Need a site that <em>converts?</em></h2>
+        <p>I'm open to Web Developer roles: remote, hybrid or on-site in Los Angeles.</p>
+      </div>
+      <div class="contact">
+        <div class="contact-row"><span class="lbl">Email</span><a class="val" href="mailto:rogetgeoffroy@gmail.com">rogetgeoffroy@gmail.com</a><button type="button" class="copy" data-copy="rogetgeoffroy@gmail.com">Copy</button></div>
+        <div class="contact-row"><span class="lbl">Phone</span><a class="val" href="tel:+13474355366">347-435-5366</a><button type="button" class="copy" data-copy="347-435-5366">Copy</button></div>
+        <div class="contact-row"><span class="lbl">LinkedIn</span><a href="https://www.linkedin.com/in/roget-geoffroy-5b94596b" target="_blank" rel="noopener noreferrer">roget-geoffroy ↗</a></div>
+        <div class="contact-row"><span class="lbl">GitHub</span><a href="https://github.com/rogetgeoffroy" target="_blank" rel="noopener noreferrer">rogetgeoffroy ↗</a></div>
+      </div>
+    </div>
+    <p class="fine"><span>Roget Geoffroy · Los Angeles, CA</span><span>References available on request</span></p>
+  </div>
+</footer>
+
+<script>
+const SKILLS = [
+  ["Front end", ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", "React", "Next.js", "Vue.js", "Tailwind CSS", "Sass", "Bootstrap", "jQuery", "Handlebars"]],
+  ["UI and accessibility", ["Responsive design", "Cross-browser compatibility", "Reusable components", "WCAG 2.x", "ARIA"]],
+  ["Back end and data", ["Node.js", "PHP", "REST APIs", "GraphQL", "PostgreSQL", "MySQL", "MongoDB", "Prisma"]],
+  ["Testing and QA", ["Jest", "React Testing Library", "Cypress", "Selenium", "BrowserStack", "Cross-device testing"]],
+  ["Cloud and DevOps", ["AWS", "Azure", "Vercel", "Docker", "GitHub Actions", "GitLab CI", "Jenkins", "Git"]],
+  ["CMS and e-commerce", ["WordPress", "Shopify and Liquid", "HubSpot CMS", "Headless CMS", "Magento", "Adobe Experience Manager", "Drupal"]],
+  ["Performance and SEO", ["Technical SEO", "Caching and database optimization", "Google Analytics 4", "Google Tag Manager", "Google Search Console"]],
+  ["Design and workflow", ["Figma", "Photoshop", "Illustrator", "Sketch", "InVision", "Agile and Scrum", "Code reviews", "Technical documentation"]],
+];
+const ROLES = [
+  ["PINKYS Iron Doors", "Oct 2025", null],
+  ["CeteraMarketing", "Oct 2023", "Oct 2025"],
+  ["TGR Foundation", "Apr 2023", "Sep 2024"],
+  ["BlueVine", "Feb 2022", "Apr 2023"],
+  ["NYC Health + Hospitals", "Apr 2020", "Jan 2022"],
+  ["CoreSight Research", "Feb 2018", "Apr 2020"],
+  ["American Kennel Club", "Apr 2016", "Feb 2018"],
+];
+const M = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
+const now = new Date();
+const nowY = now.getFullYear() + now.getMonth() / 12;
+const yr = (s) => { const [m, y] = s.split(" "); return +y + M[m] / 12; };
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+
+document.getElementById("skill-index").innerHTML = SKILLS.map(([g, items]) =>
+  `<div class="index-group"><h3>${esc(g)}<span>${String(items.length).padStart(2, "0")}</span></h3><p>${items.map(esc).join(" <i>/</i> ")}</p></div>`).join("");
+
+const start = 2016, end = now.getFullYear() + 1, years = end - start;
+const rows = ROLES.slice().reverse().map(([org, a, b]) => {
+  const s = yr(a), e = b ? yr(b) : nowY;
+  return `<div class="tl-row"><div class="tl-name" title="${esc(org)}">${esc(org)}</div><div class="tl-track" style="--years:${years}"><div class="tl-bar${b ? "" : " now"}" style="left:${((s - start) / years) * 100}%;width:${((e - s) / years) * 100}%"></div></div></div>`;
+}).join("");
+const ticks = [];
+for (let y = start; y < end; y += 2) ticks.push(`<span style="left:${((y - start) / years) * 100}%">${y}</span>`);
+document.getElementById("timeline").innerHTML = `<p class="tl-title">Career at a glance, drawn to scale</p>${rows}<div class="tl-axis"><div></div><div class="tl-years">${ticks.join("")}</div></div>`;
+
+document.getElementById("issue-line").textContent = `Vol. ${now.getFullYear() - 2016} · ${now.toLocaleString("en-US", { month: "long", year: "numeric" })}`;
+
+document.addEventListener("click", async (e) => {
+  const b = e.target.closest("button.copy");
+  if (!b) return;
+  try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = "Copied"; } catch (err) { b.textContent = "Copy failed"; }
+  setTimeout(() => (b.textContent = "Copy"), 1600);
+});
+</script>
+</body>
+</html>
